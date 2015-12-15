@@ -1,0 +1,128 @@
+<div class="panel panel-info">
+    <div class="panel-heading toggle-panel" ng-click="filterActive=!filterActive">
+        <h3 class="panel-title">Панель фильтрации {{tok}}<span>(нажмите чтобы {{filterActive ? 'скрыть' : 'показать'}})</span></h3>
+    </div>
+    <div class="panel-body" ng-show="filterActive">
+        <div class="form-inline">
+            <fieldset>
+                <div class="form-group">
+                    <label for="note__category" class="control-label">Категория</label>
+                    <select class="form-control" name="fCategory" id="note__category"
+                            ng-init="filterFields.category=noteFilterCats[0].short"
+                            ng-model="filterFields.category"
+                            ng-options="cat.short as cat.value for cat in noteFilterCats">
+                    </select>
+                </div>
+                <div class="form-group label-floating">
+                    <label for="titleFilter" class="control-label">Заголовок</label>
+                    <div class="col-md-6">
+                        <input type="text" ng-model="filterFields.title" class="form-control" id="titleFilter">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="startDateSearchFilter" class="col-md-2 control-label">Нач. дата</label>
+                    <div class="col-md-2">
+                        <input type="text" class="form-control" ng-model="filterFields.startDate" name="startdate_filter" id="startDateSearchFilter" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="endDateSearchFilter" class="col-md-2 control-label">Конеч дата </label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" ng-model="filterFields.endDate" name="enddate_filter" id="endDateSearchFilter" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-fab btn-raised" ng-click="performFilter()">OK</button>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-success">
+    <div class="panel-heading toggle-panel" ng-click="sortActive=!sortActive">
+        <h3 class="panel-title">Панель сортировки <span>(нажмите чтобы {{sortActive ? 'скрыть' : 'показать'}})</span></h3>
+    </div>
+    <div class="panel-body" ng-show="sortActive">
+        <div class="form-inline">
+            <div class="note-sort">
+                <div class="note-sort__item">
+                    <button type="button" class="btn btn-success"
+                            ng-disabled="!inSortFields('created_at')"
+                            ng-click="addToSortFields('created_at'); sortBy(sortFields)">
+                        Дата/время создания
+                        <span class="badge sort-number-badge" ng-if="hasField(sortFields, 'created_at')">{{getSortableIndex('created_at')}}</span>
+                        <span class="glyphicon sort-dir-number-badge"
+                          ng-class="{'glyphicon-hand-up' : sortFields.indexOf('created_at:asc') !== -1, 'glyphicon-hand-down': sortFields.indexOf('created_at:desc') !== -1}">
+                        </span>
+                    </button>
+
+                    <a href="javascript:void(0)" ng-click="inSortFields('created_at') ? removeFromSortFields('created_at') : addToSortFields('created_at'); sortBy(sortFields)">
+                        <span class="glyphicon" ng-class="hasField(sortFields, 'created_at') ? 'glyphicon-remove' : 'glyphicon-plus'">
+                        </span>
+                    </a>
+                </div>
+
+                <div class="note-sort__item">
+                    <button type="button" class="btn btn-success"
+                            ng-disabled="!inSortFields('category')"
+                            ng-click="addToSortFields('category'); sortBy(sortFields)">
+                        Категория
+                        <span class="badge sort-number-badge" ng-if="inSortFields('category')">{{getSortableIndex('category')}}</span>
+                        <span class="glyphicon sort-dir-number-badge"
+                              ng-class="{'glyphicon-hand-up' : sortFields.indexOf('category:asc') !== -1, 'glyphicon-hand-down': sortFields.indexOf('category:desc') !== -1}">
+                        </span>
+                    </button>
+
+                    <a href="javascript:void(0)" ng-click="inSortFields('category') ? removeFromSortFields('category') : addToSortFields('category'); sortBy(sortFields)">
+                        <span class="glyphicon" ng-class="hasField(sortFields, 'category') ? 'glyphicon-remove' : 'glyphicon-plus'">
+                        </span>
+                    </a>
+
+                </div>
+
+                <div class="note-sort__item">
+                    <button type="button" class="btn btn-success"
+                            ng-click="addToSortFields('is_featured'); sortBy(sortFields)"
+                            ng-disabled="!inSortFields('is_featured')">
+                        Избранная
+                        <span class="badge sort-number-badge" ng-if="inSortFields('is_featured')">{{getSortableIndex('is_featured')}}</span>
+                        <span class="glyphicon sort-dir-number-badge"
+                              ng-class="{'glyphicon-hand-up' : sortFields.indexOf('is_featured:asc') !== -1, 'glyphicon-hand-down': sortFields.indexOf('is_featured:desc') !== -1}">
+                        </span>
+                    </button>
+                    <a href="javascript:void(0)" ng-click="inSortFields('is_featured') ? removeFromSortFields('is_featured') : addToSortFields('is_featured'); sortBy(sortFields)">
+                        <span class="glyphicon" ng-class="hasField(sortFields, 'is_featured') ? 'glyphicon-remove' : 'glyphicon-plus'">
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="notes-display">
+    <div ng-repeat="note in notes" class="note-display">
+        <div class="note-display__title">
+            <h3 class="note-display__title-body">{{note.title}}</h3>
+
+            <span class="label label-info">{{note.category_display}}</span>
+            <span class="label label-success" ng-if="note.is_featured">Избранная</span>
+        </div>
+        <div class="note-display__content">
+            <p class="note-display__content-body">{{note.content | cut:true:100:' ...'}}</p>
+            <div class="note-display__content-info">
+                <span class="note-display__content-created_date">{{note.created_at | date:'shortDate':'UTC'}}</span>
+
+                <div class="note-display__content-info-actions">
+                    <a href="/notes/{{note.uuid}}/edit" title="Отредактировать заметку"><span class="glyphicon glyphicon-pencil"></span></a>
+                    <a href="javascript:void(0)" title="Удалить заметку" ng-click="deleteNote(note.id)"><span class="glyphicon glyphicon-remove"></span></a>
+                    <a href="/notes/{{note.uuid}}" title="Просмотреть заметку"><span class="glyphicon glyphicon-eye-open"></span></a>
+                    <a href="javascript:void(0)"
+                       ng-click="getShareInfo(note)"
+                       ng-show="note.pub_token" title="Посмотреть ссылку"><span class="glyphicon glyphicon-share"></span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+<div class="note-form note-edit__form">
+    <form class="form-horizontal" ng-submit="update(note)">
+        <fieldset>
+            <legend>Правка заметки</legend>
+            <div class="form-group" ng-class="{'has-error': errorFields['title']}">
+                <label for="note__title" class="control-label">Заголовок {{errorFields['title']}}</label>
+                <input class="form-control" id="note__title" type="text" ng-model="note.title">
+            </div>
+
+            <div class="form-group">
+                <label for="note__content" class="control-label">Содержимое</label>
+                <textarea class="form-control" rows="3" id="note__content" ng-model="note.content"></textarea>
+                <span class="help-block">Вы можете заполнить это поле для более подробной информации</span>
+            </div>
+            <div class="note-edit_form-user-select-elements">
+                <div class="form-group">
+
+
+                    <div class="note-edit_form--category-featured-together">
+                        <div class="note-edit_form-user--category-select col-md-4">
+                            <label for="note__category" class="control-label">Выберите категорию</label>
+                            <select id="note__category" class="form-control"
+                                ng-init="note.category = noteCategories[0].short"
+                                ng-model="note.category"
+                                ng-options="cat.short as cat.value for cat in noteCategories">
+                            </select>
+                        </div>
+
+                        <div class="note-edit_form-two-checkbox">
+                            <div class="note-edit_form-featured-toggle col-md-6">
+                                <div class="togglebutton">
+                                    <label>
+                                        <input class="control-label" type="checkbox" ng-model="note.is_featured"> Избранная?
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="note-edit_form-featured-toggle col-md-6">
+                                <div class="togglebutton">
+                                    <label>
+                                        <input type="checkbox" ng-model="togglePublish"> {{ note.pub_token ? 'Отменить публикацию' : 'Опубликовать!' }}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-md-10 col-md-offset-2">
+                <button type="button" class="btn btn-default" ng-click="cancel()">Отмена</button>
+                <input type="submit" class="btn btn-primary" ng-click="update()" value="Сохранить" />
+              </div>
+            </div>
+
+        </fieldset>
+    </form>
+</div>

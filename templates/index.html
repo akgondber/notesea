@@ -1,0 +1,28 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html ng-app="notesea">
+<head>
+  <title>artfriend-django-angular-boilerplate</title>
+
+  <base href="/" />
+  {% include 'stylesheets.html' %}
+</head>
+
+<body>
+
+  <div class="container">
+    {% include 'hornav.html' %}
+    <div class="row-picture">
+      <p></p>
+    </div>
+    <div class="col-xs-12" ng-view></div>
+    {% if user.is_authenticated %}
+
+    {% else %}
+      <div ng-include="'{% static 'templates/about/index.html' %}'">Authed</div>
+    {% endif %}
+  </div>
+
+  {% include 'javascripts.html' %}
+</body>
+</html>

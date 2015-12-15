@@ -1,0 +1,33 @@
+.about {
+    .about-references {
+        .about-references__link {
+            margin-right: 16px;
+            font-size: 130%;
+            color: #9e04f8;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    .short_description {
+        .short_description--content {
+            font-size: 20px;
+
+        }
+        ul li {
+            font-size: 24px;
+        }
+    }
+}
+
+.magic-ins {
+    //height: 0px;
+
+}
+
+.material-panel-custom {
+    a {
+        cursor: pointer;
+    }
+}

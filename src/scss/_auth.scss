@@ -1,0 +1,11 @@
+.user-login__form {
+    width: 440px;
+    margin: 30px auto 100px auto;
+    .user-login__form-register-link {
+        font-size: 14px;
+        &:hover {
+            text-decoration: none;
+            font-size: 16px;
+        }
+    }
+}

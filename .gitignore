@@ -1,0 +1,16 @@
+# Python compiled byte code
+*.pyc
+
+# SQLite3 database
+*.sqlite3
+
+# Node modules
+node_modules/
+
+# Bower components
+static/bower_components/
+
+static/javascripts/build/
+static/javascripts/dist/
+
+private_scripts/

@@ -1,0 +1,40 @@
+{
+  "name": "notesea",
+  "version": "1.0.0",
+  "description": "Note manager",
+  "main": "build/js/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/akgondber/notesea.git"
+  },
+  "keywords": [
+    "note",
+    "manager",
+    "calendar",
+    "sheduler",
+    "graphics",
+    "interface",
+    "design",
+    "ajax"
+  ],
+  "author": "Rushan Alyautdinov <akgondber@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/akgondber/notesea/issues"
+  },
+  "homepage": "https://github.com/akgondber/notesea",
+  "dependencies": {
+    "bower": "^1.7.0",
+    "gulp": "^3.9.0"
+  },
+  "devDependencies": {
+    "gulp-clean": "^0.3.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-ng-annotate": "^1.1.0",
+    "gulp-sass": "^2.1.0",
+    "gulp-uglify": "^1.5.1"
+  }
+}

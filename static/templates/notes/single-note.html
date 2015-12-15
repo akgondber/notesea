@@ -1,0 +1,25 @@
+<div class="note-preview">
+    <div class="note-preview__title">
+        <p>{{previewedNote.title}}</p>
+    </div>
+
+    <div class="note-preview__info">
+        <p class="note-preview__info--content">{{previewedNote.content}}</p>
+        <div class="note-preview__info--additional-info">
+            <p class="note-preview__info--additional-info-creation-time">
+                {{previewedNote.created_at | date:'short'}}
+            </p>
+            <span class="badge note-preview__info-category">{{previewedNote.category_display}}</span>
+            <span class="label label-success note-preview__info-is-featured" ng-if="previewedNote.is_featured">Избранная</span>
+        </div>
+
+        <div class="note-preview__published" ng-if="previewedNote.pub_token">
+            <p>Заметка опубликована, ссылка на заметку:<br />
+            {{'http://localhost:8000/published_notes/' + previewedNote.pub_token}}</p>
+        </div>
+    </div>
+    <div class="note-preview__links">
+        <a href="/notes">Перейти ко всем заметкам</a>
+        <a href="/notes/{{previewedNote.uuid}}/edit">Редактировать</a>
+    </div>
+</div>

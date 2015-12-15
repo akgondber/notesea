@@ -1,0 +1,43 @@
+{
+  "name": "notesea",
+  "version": "1.0.0",
+  "authors": [
+    "Rushan <akgondber@gmail.com>"
+  ],
+  "description": "Note manager",
+  "main": "build/js/index.js",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "note",
+    "manager",
+    "calendar",
+    "sheduler",
+    "graphics",
+    "interface",
+    "design",
+    "ajax"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/akgondber/notesea",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8",
+    "angular-route": "~1.4.8",
+    "angular-cookies": "~1.4.8",
+    "underscore": "~1.8.3",
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.6",
+    "bootstrap-material-design": "~0.5.4",
+    "ngDialog": "~0.5.6",
+    "bootstrap-sweetalert": "~0.4.5",
+    "pickmeup": "~2.8.0"
+  }
+}

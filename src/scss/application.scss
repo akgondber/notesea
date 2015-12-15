@@ -1,0 +1,23 @@
+@import 'variables';
+@import 'panels';
+@import 'notes';
+@import 'about';
+@import 'auth';
+
+
+.pop {
+    .dop {
+        color: $great-color;
+        font-size: 20px;
+    }
+}
+
+.note {
+    &.new-note-form {
+        width: $main-form-width;
+    }
+}
+
+.popk {
+    display: inline-block;
+}

@@ -1,0 +1,20 @@
+<form role="form" class="form-horizontal user-login__form" ng-submit="vm.login()">
+    <fieldset>
+        <div class="form-group label-floating">
+            <label for="login__username" for="login__username" class="control-label">Имя пользователя</label>
+            <input type="text" class="form-control" id="login__username" ng-model="vm.username" />
+        </div>
+
+        <div class="form-group label-floating">
+            <label for="login__password" class="control-label">Пароль</label>
+            <input type="password" class="form-control" id="login__password" ng-model="vm.password" />
+
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Войти</button>
+            <a href="/register" class="user-login__form-register-link">Еще не имеете аккаунта?</a>
+        </div>
+    </fieldset>
+
+</form>

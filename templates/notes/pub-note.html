@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .public-note {
+            margin: 0 auto;
+            width: 50%;
+        }
+        .public-note > .title {
+            color: red;
+            font-size: 1.6em;
+        }
+        h3.title::first-letter {
+            font-weight: bold;
+            font-size: 1.9em;
+            color: #8cae1a;
+        }
+        .public-note .public-note__content {
+            margin: 26px 10px 54px -2px;
+            color: #ae351d;
+            font-size: 1.4em;
+        }
+
+        .public-note .public-note__info p {
+            display: inline;
+        }
+        .public-note .public-note__info p:first-child {
+            margin-right: 32px;
+            border-bottom: 5px solid #44f412;
+        }
+
+        .public-note .public-note__info span:first-child {
+            margin-right: 52px;
+        }
+
+        span {
+            border: 2px dashed #f91203;
+            margin-left: 8px;
+            background-color: #91baec;
+            -moz-border-radius: 26px 26px 26px 26px;
+            border-radius: 26px 26px 26px 26px;
+            padding: 10px 10px;
+        }
+
+        .public-note .public-note__info .public-note__created-at {
+            font-size: 1.3em;
+            color: #9517b2;
+
+        }
+        .public-note .public-note__info .featured {
+            background-color: #02fead;
+            color: #11043b;
+        }
+    </style>
+</head>
+<body>
+    <div class="public-note">
+        <h3 class="title">{{published_note.title}}</h3>
+        <div class="public-note__content">
+            <p>{{published_note.content}}</p>
+        </div>
+
+        <div class="public-note__info">
+            <p class="public-note__created-at">{{ published_note.created_at | date:'d-m-Y' }}</p>
+            <p>Категория:<span>{{published_note.get_category_display}}</span></p>
+            {% if published_note.is_featured %}
+                <span class="featured">Избранная</span>
+            {% endif %}
+        </div>
+
+    </div>
+
+</body>
+</html>
