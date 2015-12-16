@@ -17,7 +17,7 @@ class NoteSerializer(serializers.ModelSerializer):
     def get_category_display(self, obj):
         return obj.get_category_display()
 
-    def get_validation_exclusio(self, *args, **kwargs):
+    def get_validation_exclusions(self, *args, **kwargs):
         exclusions = super(NoteSerializer, self).get_validation_exclusions()
 
         return exclusions + ['owner']
