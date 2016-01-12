@@ -1,4 +1,4 @@
-<div class="start-page" ng-controller="AboutController as about">
+<div class="start-page">
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-primary about">
@@ -18,12 +18,13 @@
                             доступ к ссылке кому только захотите. Рабочие могут временно или постоянно хранить здесь свои записи
                             по рабочим моментам, сроки выполнения задач. Спортсмены-профессионалы или любители могут собирать здесь
                             информацию, связанную с спортивными мероприятиями, кратковременные или догосрочные планы по увеличению своих
-                            показателей, контролируя и мотивируя самого себя.
+                            показателей, контролируя и мотивируя самого себя. {{getUserToken()}}
                         </p>
+                        <p>{{co}}</p>
                     </div>
-                    <div class="references about-references">
+                    <div class="references about-references" ng-if="!isAuthenticated()">
                         <a href="/register" class="about-references__link">Зарегистрироваться</a>
-                        <a href="/register" class="about-references__link">Войти</a>
+                        <a href="/login" class="about-references__link">Войти</a>
                     </div>
                 </div>
               </div>
@@ -48,9 +49,9 @@
                                 <li>Просматриать публичные заметки, к которым вам  предоставили доступ</li>
                             </ul>
                         </div>
-                        <div class="references about-references">
+                        <div class="references about-references" ng-if="!isAuthenticated()">
                             <a href="/register" class="about-references__link">Зарегистрироваться</a>
-                            <a href="/register" class="about-references__link">Войти</a>
+                            <a href="/login" class="about-references__link">Войти</a>
                         </div>
                     </div>
                 </div>

@@ -69,20 +69,20 @@
         }
 
         function isAuthenticated() {
-            return !!$cookies.authenticatedAccount;
+            return !!$cookies.get('authenticatedAccount');
         }
 
         function setAuthenticatedAccount() {
-            $cookies.authenticatedAccount = RandomStaff.getSimpleToken(28, 'A#a');
+            $cookies.put('authenticatedAccount', RandomStaff.getSimpleToken(28, 'A#a'));
         }
 
         function unauthenticate() {
-            delete $cookies.authenticatedAccount;
+            $cookies.remove('authenticatedAccount');
         }
 
         function getUserToken() {
-            if($cookies.authenticatedAccount) {
-                return $cookies.authenticatedAccount;
+            if($cookies.get('authenticatedAccount')) {
+                return $cookies.get('authenticatedAccount');
             }
             else {
                 return 'dummy';

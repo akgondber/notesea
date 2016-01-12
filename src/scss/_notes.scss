@@ -210,28 +210,26 @@
         margin-bottom: 28px;
     }
     .note-preview__links {
-        display: inline-block;
-        a {
-            font-size: 18px;
+        .note-preview__link {
+            display: inline;
             margin-right: 26px;
+            font-size: 18px;
+            color: $go-to-link;
+
             &:hover {
-                font-size: 20px;
-                color: #1617e8;
-                -webkit-transition: all 0.3s ease;
-                -moz-transition: all 0.3s ease;
-                -o-transition: all 0.3s ease;
-                -ms-transition: all 0.3s ease;
-                transition: all 0.3s ease;
+                color: $go-to-link-hover;
+                -webkit-transition: color 0.3s ease;
+                -moz-transition: color 0.3s ease;
+                -o-transition: color 0.3s ease;
+                -ms-transition: color 0.3s ease;
+                transition: color 0.3s ease;
                 text-decoration: none;
             }
-
-            &:first-of-type {
-                margin-left: 20px;
-            }
             &:last-of-type {
-                margin-left: 58px;
+                display: inline-block;
             }
         }
+
     }
 }
 

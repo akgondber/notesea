@@ -15,8 +15,9 @@
             p2: 'M20,20 L50,20 L50,30 L20,30 Z',
             transform: 'translate(-120px, 0) translate(120px, 0) translate(28px, -17px) rotate(45deg)'
         }
-
+        $scope.fr = "FR";
         $scope.introductionActive = true;
-
+        $scope.isAuthenticated = Authentication.isAuthenticated;
+        $scope.getUserToken = Authentication.getUserToken;
     }
 })();

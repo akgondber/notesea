@@ -125,24 +125,21 @@
     font-size: 24px;
     margin-top: 26px;
     margin-bottom: 28px; }
-  .note-preview .note-preview__links {
-    display: inline-block; }
-    .note-preview .note-preview__links a {
-      font-size: 18px;
-      margin-right: 26px; }
-      .note-preview .note-preview__links a:hover {
-        font-size: 20px;
-        color: #1617e8;
-        -webkit-transition: all 0.3s ease;
-        -moz-transition: all 0.3s ease;
-        -o-transition: all 0.3s ease;
-        -ms-transition: all 0.3s ease;
-        transition: all 0.3s ease;
-        text-decoration: none; }
-      .note-preview .note-preview__links a:first-of-type {
-        margin-left: 20px; }
-      .note-preview .note-preview__links a:last-of-type {
-        margin-left: 58px; }
+  .note-preview .note-preview__links .note-preview__link {
+    display: inline;
+    margin-right: 26px;
+    font-size: 18px;
+    color: #4316f3; }
+    .note-preview .note-preview__links .note-preview__link:hover {
+      color: #1763c4;
+      -webkit-transition: color 0.3s ease;
+      -moz-transition: color 0.3s ease;
+      -o-transition: color 0.3s ease;
+      -ms-transition: color 0.3s ease;
+      transition: color 0.3s ease;
+      text-decoration: none; }
+    .note-preview .note-preview__links .note-preview__link:last-of-type {
+      display: inline-block; }
 
 .note-form {
   width: 540px; }

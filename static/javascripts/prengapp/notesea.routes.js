@@ -7,7 +7,10 @@
     config.$injet = ['$routeProvider'];
 
     function config($routeProvider) {
-        $routeProvider.when('/register', {
+        $routeProvider.when('/', {
+            controller: 'AboutController',
+            templateUrl: '/static/templates/about/index.html'
+        }).when('/register', {
             controller: 'RegisterCtrl',
             controllerAs: 'rg',
             templateUrl: '/static/templates/authentication/register.html'
