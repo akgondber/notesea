@@ -125,20 +125,20 @@
     font-size: 24px;
     margin-top: 26px;
     margin-bottom: 28px; }
-  .note-preview .note-preview__links .note-preview__link {
+  .note-preview .go-to__links .go-to__link {
     display: inline;
-    margin-right: 26px;
+    margin-right: 24px;
     font-size: 18px;
     color: #4316f3; }
-    .note-preview .note-preview__links .note-preview__link:hover {
-      color: #1763c4;
+    .note-preview .go-to__links .go-to__link:hover {
+      color: #17a3c4;
       -webkit-transition: color 0.3s ease;
       -moz-transition: color 0.3s ease;
       -o-transition: color 0.3s ease;
       -ms-transition: color 0.3s ease;
       transition: color 0.3s ease;
       text-decoration: none; }
-    .note-preview .note-preview__links .note-preview__link:last-of-type {
+    .note-preview .go-to__links .go-to__link:last-of-type {
       display: inline-block; }
 
 .note-form {

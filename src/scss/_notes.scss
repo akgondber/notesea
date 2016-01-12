@@ -209,15 +209,15 @@
         margin-top: 26px;
         margin-bottom: 28px;
     }
-    .note-preview__links {
-        .note-preview__link {
+    .go-to__links {
+        .go-to__link {
             display: inline;
-            margin-right: 26px;
+            margin-right: 24px;
             font-size: 18px;
-            color: $go-to-link;
+            color: $go-to-link-color;
 
             &:hover {
-                color: $go-to-link-hover;
+                color: $go-to-link-hover-color;
                 -webkit-transition: color 0.3s ease;
                 -moz-transition: color 0.3s ease;
                 -o-transition: color 0.3s ease;
